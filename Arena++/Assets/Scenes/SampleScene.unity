@@ -2075,6 +2075,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotateSpeed: 75
+  jumpVelocity: 5
+  distanceToGround: 0.1
+  groundlayer:
+    serializedVersion: 2
+    m_Bits: 0
+  bullet: {fileID: 5382831510897409238, guid: 0f754a26b3f95a548809c478b9da3d80, type: 3}
+  bulletSpeed: 100
 --- !u!136 &1959898453
 CapsuleCollider:
   m_ObjectHideFlags: 0
