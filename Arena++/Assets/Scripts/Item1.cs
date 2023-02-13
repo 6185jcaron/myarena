@@ -19,7 +19,7 @@ public class Item1 : MonoBehaviour
             Destroy(this.transform.parent.gameObject);
             //4
             Debug.Log("Item Collected!");
-            player.moveMultiplier = 1.5f;
+            player.moveMultiplier = 3f;
             Debug.Log("TEST");
         }
 

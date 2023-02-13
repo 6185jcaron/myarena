@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class Item2 : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //1
+    public PlayerBehavior player;
     void Start()
     {
-        
+        player = GameObject.Find("Player").GetComponent<PlayerBehavior>();
     }
-
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter(Collision collision)
     {
-        
+        //2
+        if (collision.gameObject.name == "Player")
+        {
+            //3
+            Destroy(this.transform.parent.gameObject);
+            //4
+            Debug.Log("Item Collected!");
+            player.jumpMultiplier = 2f;
+            Debug.Log("TEST");
+        }
+
+
+
+
+
     }
 }

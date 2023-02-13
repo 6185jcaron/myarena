@@ -10,7 +10,8 @@ public class PlayerBehavior : MonoBehaviour
     public float rotateSpeed = 75f;
     public float jumpVelocity = 5f;
     public float item1 = 1f;
-    public float distanceToGround = 0.1f;
+    private float item2 = 1f;
+    private float distanceToGround = 0.1f;
     public LayerMask groundlayer;
     public GameObject bullet;
     public float bulletSpeed = 100f;
@@ -26,7 +27,20 @@ public class PlayerBehavior : MonoBehaviour
             Debug.Log("TEST");
         }
     }
-    public float jumpMultiplier = 1f;
+    public float jumpMultiplier 
+    {
+        get
+        {
+            return item2;
+        }
+        set
+        {
+        item2 = value;
+        Debug.Log("TEST");
+        }
+
+}
+
 
 
 
@@ -48,14 +62,8 @@ public class PlayerBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "item(1)")
-        {
-            moveMultiplier = 20f;
-            Debug.Log("TEST");
-        }
-    }
+   
+    
     void Update()
     {
         //3
@@ -69,7 +77,7 @@ public class PlayerBehavior : MonoBehaviour
         */
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
-            _rb.AddForce(Vector3.up * jumpVelocity,
+            _rb.AddForce(Vector3.up * jumpVelocity * jumpMultiplier,
                 ForceMode.Impulse);
         }
         if (Input.GetMouseButtonDown(0))
