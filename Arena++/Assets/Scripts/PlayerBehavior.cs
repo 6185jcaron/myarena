@@ -14,6 +14,8 @@ public class PlayerBehavior : MonoBehaviour
     public LayerMask groundlayer;
     public GameObject bullet;
     public float bulletSpeed = 100f;
+    public float moveMultiplier = 1f;
+    public float jumpMultiplier = 1f;
 
 
 
@@ -34,6 +36,13 @@ public class PlayerBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "item(1)")
+        {
+            moveMultiplier = 20f;
+        }
+    }
     void Update()
     {
         //3
@@ -53,13 +62,14 @@ public class PlayerBehavior : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             GameObject newBullet = Instantiate(bullet,
-                this.transform.position + new Vector3(1, 0, 0),
+            this.transform.position + new Vector3(1, 0, 0),
                 this.transform.rotation) as GameObject;
             Rigidbody bulletRB =
                 newBullet.GetComponent<Rigidbody>();
             bulletRB.velocity = this.transform.forward *
                 bulletSpeed;
         }
+       
     }
     //1
     void FixedUpdate()
@@ -72,7 +82,7 @@ public class PlayerBehavior : MonoBehaviour
                 //3
         Quaternion angleRot = Quaternion.Euler(rotation * Time.fixedDeltaTime);
                 //4
-        _rb.MovePosition(this.transform.position + this.transform.forward * vInput * Time.fixedDeltaTime);
+        _rb.MovePosition(this.transform.position + this.transform.forward * vInput * Time.fixedDeltaTime * moveMultiplier);
                 //5
         _rb.MoveRotation(_rb.rotation * angleRot);
        

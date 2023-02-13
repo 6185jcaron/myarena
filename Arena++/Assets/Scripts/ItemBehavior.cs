@@ -13,7 +13,7 @@ public class ItemBehavior : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         //2
-        if (collision.gameObject.name == "Player") 
+        if (collision.gameObject.name == "Player")
         {
             //3
             Destroy(this.transform.parent.gameObject);
@@ -21,6 +21,8 @@ public class ItemBehavior : MonoBehaviour
             Debug.Log("Item Collected!");
             gameManager.Items += 1;
         }
+
+        
 
     }
 }
