@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemBehavior : MonoBehaviour
+public class Item1 : MonoBehaviour
 {
     //1
-    public GameBehavior gameManager;
+    public PlayerBehavior player;
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
+        player = GameObject.Find("Player").GetComponent<PlayerBehavior>();
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -19,10 +19,11 @@ public class ItemBehavior : MonoBehaviour
             Destroy(this.transform.parent.gameObject);
             //4
             Debug.Log("Item Collected!");
-            gameManager.Items += 1;          
+            player.moveMultiplier = 1.5f;
+            Debug.Log("TEST");
         }
-        
-       
+
+
 
 
 

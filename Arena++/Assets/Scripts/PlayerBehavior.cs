@@ -9,13 +9,25 @@ public class PlayerBehavior : MonoBehaviour
     public float moveSpeed = 10f;
     public float rotateSpeed = 75f;
     public float jumpVelocity = 5f;
-
+    public float item1 = 1f;
     public float distanceToGround = 0.1f;
     public LayerMask groundlayer;
     public GameObject bullet;
     public float bulletSpeed = 100f;
-    public float moveMultiplier = 1f;
+    public float moveMultiplier
+    {
+        get
+        {
+            return item1;
+        }
+        set
+        {
+            item1 = value;
+            Debug.Log("TEST");
+        }
+    }
     public float jumpMultiplier = 1f;
+
 
 
 
@@ -41,6 +53,7 @@ public class PlayerBehavior : MonoBehaviour
         if (collision.gameObject.name == "item(1)")
         {
             moveMultiplier = 20f;
+            Debug.Log("TEST");
         }
     }
     void Update()
