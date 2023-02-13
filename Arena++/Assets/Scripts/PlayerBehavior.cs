@@ -94,8 +94,9 @@ public class PlayerBehavior : MonoBehaviour
         Vector3 rotation = Vector3.up * hInput;
                 //3
         Quaternion angleRot = Quaternion.Euler(rotation * Time.fixedDeltaTime);
-                //4
-        _rb.MovePosition(this.transform.position + this.transform.forward * vInput * Time.fixedDeltaTime * moveMultiplier);
+        //4
+        if ((this.transform.position + this.transform.forward * vInput * Time.fixedDeltaTime * moveMultiplier).x > -24 && (this.transform.position + this.transform.forward * vInput * Time.fixedDeltaTime * moveMultiplier).x < 24 && (this.transform.position + this.transform.forward * vInput * Time.fixedDeltaTime * moveMultiplier).z > -24 && (this.transform.position + this.transform.forward * vInput * Time.fixedDeltaTime * moveMultiplier).z < 24)
+        { _rb.MovePosition(this.transform.position + this.transform.forward * vInput * Time.fixedDeltaTime * moveMultiplier); }
                 //5
         _rb.MoveRotation(_rb.rotation * angleRot);
        
