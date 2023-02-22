@@ -56,11 +56,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/ARENA.loader.js";
+      var loaderUrl = buildUrl + "/webbuild.loader.js";
       var config = {
-        dataUrl: buildUrl + "/ARENA.data",
-        frameworkUrl: buildUrl + "/ARENA.framework.js",
-        codeUrl: buildUrl + "/ARENA.wasm",
+        dataUrl: buildUrl + "/webbuild.data",
+        frameworkUrl: buildUrl + "/webbuild.framework.js",
+        codeUrl: buildUrl + "/webbuild.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Arena++",
@@ -88,6 +88,8 @@
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
         // config.devicePixelRatio = 1;
+
+        unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
