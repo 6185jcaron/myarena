@@ -78,7 +78,16 @@ public class GameBehavior : MonoBehaviour
             }
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         }
-
+        /*
+        if (Input.GetKeyDown(KeyCode.F));
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        if (Input.GetKeyDown(KeyCode.G));
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        } 
+        */
     }
     // Start is called before the first frame update
     void Start()
