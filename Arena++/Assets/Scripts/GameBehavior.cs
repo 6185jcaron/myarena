@@ -66,6 +66,7 @@ public class GameBehavior : MonoBehaviour
                 SceneManager.LoadScene(0);
                 Time.timeScale = 1.0f;
             }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
         }
         if (showLossScreen)
@@ -75,6 +76,7 @@ public class GameBehavior : MonoBehaviour
                 SceneManager.LoadScene(0);
                 Time.timeScale = 1.0f;
             }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         }
 
     }
