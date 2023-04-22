@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-
+    private void Start()
+    {
+        Time.timeScale = 0f;
+    }
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUi;
     void Update()
@@ -19,7 +22,7 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause();
             }
-        }
+        }  
     }
     public void Resume()
     {
