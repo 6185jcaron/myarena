@@ -126,12 +126,18 @@ public class PlayerBehavior : MonoBehaviour
             QueryTriggerInteraction.Ignore);
         return grounded;
     }
+    
+    [SerializeField] AudioClip[] _clips;
     void OnCollisionEnter(Collision collision)
     {
+        int index = UnityEngine.Random.Range(0, _clips.Length);
+        AudioClip clip = _clips[index];
+        GetComponent<AudioSource>().PlayOneShot(clip);
         if (collision.gameObject.name == "Enemy")
         {
             _gameManager.HP -= 1;
         }
     }
+   
 
 }
