@@ -130,9 +130,8 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] AudioClip[] _clips;
     void OnCollisionEnter(Collision collision)
     {
-        int index = UnityEngine.Random.Range(0, _clips.Length);
-        AudioClip clip = _clips[index];
-        GetComponent<AudioSource>().PlayOneShot(clip);
+        var audioSource = GetComponent<AudioSource>();
+        audioSource.play();
         if (collision.gameObject.name == "Enemy")
         {
             _gameManager.HP -= 1;
