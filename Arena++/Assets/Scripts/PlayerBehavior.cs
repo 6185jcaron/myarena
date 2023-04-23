@@ -131,7 +131,7 @@ public class PlayerBehavior : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         var audioSource = GetComponent<AudioSource>();
-        audioSource.play();
+        audioSource.Play();
         if (collision.gameObject.name == "Enemy")
         {
             _gameManager.HP -= 1;
